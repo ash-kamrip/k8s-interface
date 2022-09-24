@@ -59,10 +59,10 @@ func (w *Workload) ToString() string {
 	return string(bWorkload)
 }
 
-func (workload *Workload) DeepCopy(w map[string]interface{}) {
-	workload.workload = make(map[string]interface{})
-	byt, _ := json.Marshal(w)
-	json.Unmarshal(byt, &workload.workload)
+func (w *Workload) DeepCopy(workload map[string]interface{}) {
+	w.workload = make(map[string]interface{})
+	byt, _ := json.Marshal(workload)
+	json.Unmarshal(byt, &w.workload)
 }
 
 func (w *Workload) ToUnstructured() (*unstructured.Unstructured, error) {

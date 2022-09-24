@@ -24,6 +24,9 @@ var clusterContextName = ""
 // K8SConfig pointer to k8s config
 var K8SConfig *restclient.Config
 
+// RunningIncluster whether running in cluster
+var RunningIncluster bool
+
 // KubernetesApi -
 type KubernetesApi struct {
 	KubernetesClient kubernetes.Interface
@@ -68,9 +71,6 @@ func NewKubernetesApi() *KubernetesApi {
 		Context:          context.Background(),
 	}
 }
-
-// RunningIncluster whether running in cluster
-var RunningIncluster bool
 
 // LoadK8sConfig load config from local file or from cluster
 func LoadK8sConfig() error {
